@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-items: space-around;
+    background-color: lightblue;
+}
+
+.title {
+    color: lightblue;
+}
