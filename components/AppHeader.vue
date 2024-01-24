@@ -14,7 +14,7 @@
 <script setup lang="js">
 
 
-import '~/assets/css/header.style.css'
+import '~/assets/css/header.css'
 
 
 </script>

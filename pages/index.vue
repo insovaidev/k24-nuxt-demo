@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import '~/assets/css/home.css'
+
 definePageMeta({
     layout: 'default'
 })
