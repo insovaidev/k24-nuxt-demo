@@ -1,9 +1,10 @@
 :root {
-    --brand-color: #00AAFF;
+    --pr-color: #00AAFF;;
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;   
-}
+    box-sizing: border-box;
+ }
+ 
