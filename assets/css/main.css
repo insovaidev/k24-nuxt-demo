@@ -1,10 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
-    --pr-color: #00AAFF;;
+    --bg-whtie: white;
+    --bg-gray: gray;
+    --pr-color: #00AAFF;
+    --text-gray: #6f6f6f;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+ }
+
+
+ body {
+    background-color: whitesmoke;
  }
  
+/* text style */
+.main-title {
+    font-size: 24px;
+    color: black;
+}
+
+.sub-title {
+    color: gray;
+    font-size: 16px;
+}
+
+.price {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* category */
+.main-category {
+    background-color: white;
+    gap: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+
+/* post */
+.main-post {
+    background-color: whitesmoke;
+    gap: 1rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+.category-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.icon-catecgory {
+    margin-bottom: 1rem;
+    display: flex;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    background: #7777;
+}
+.icon-catecgory-img {
+    height: 80px;
+    margin: auto;
+    display: block;
+}
+.catecgory-title {
+
+    color: var(--text-gray) !important;
+}
+
+
+/* card */
+
+
+
+

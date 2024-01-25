@@ -1,0 +1,7 @@
+<form>
+  <SearchBox lable='Search'  />
+  <SelectBox />
+  <ToggleBox />
+</form>
+
+scrip
