@@ -12,6 +12,7 @@
 </template>
 
 <script lang="js" setup>
-const props = defineProps(['item'])
-</script>
 
+const props = defineProps(['item'])
+
+</script>

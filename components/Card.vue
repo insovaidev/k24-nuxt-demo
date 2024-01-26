@@ -1,12 +1,15 @@
 <template>
+ 
     <div class="card-container">
-        <div class="card-image-cotainer">
-            <!-- ... -->
-            <!-- <img src="https://images.khmer24.co/23-12-08/s-customer-service-executive-indonesian-malaysian-base-in-sihanoukville--929082170202057317848138-b.jpg" alt=""> -->
-            <img :src="props.item.data.thumbnail" alt="">
-            
-            <!-- <img src="https://images.khmer24.co/23-07-21/s-2017-lexus-nx200t-f-sport--141100168991739319697334-c.jpg" alt=""> -->
-            
+        <div class="card-image-cotainer">     
+            <img class="object-fit_contain" :src="props.item.data.thumbnail" alt="" />
+
+            <div class="discount">
+                <span >$ 100</span>
+                <span >OFF</span>
+        </div>
+
+
             <div class="more">
                 <Icon  class="" icon="mingcute:more-2-fill" />
             </div>
@@ -25,26 +28,29 @@
         </div>
 
         <div class="description">
-            <p class="main-title">fdsfsdf</p>
+            <p class="main-title card-title">{{ props.item.data.title }}</p>
             <span class="sub-title">
-                <span>16mn</span><span class="dot"></span><span>Sangkat Bei, Krong Preah Sihanouk, Preah Sihanouk</span> 
+                <span>16mn  </span><span class="dot"></span><span class="subtitle-elip">Sangkat Bei, Krong Preah Sihanouk, Preah Sihanouk</span> 
             </span>
             <span class="sub-title">
                 <span >New</span><span class="dot"></span><span >2019</span><span class="dot"></span><span>Tax Paper</span> 
             </span>
-            <p class="price">$4,000</p>
-            <span class="like"></span>
+            <span class="price-like-continer">
+                <div class="price-continer">
+                    <p class="price">$4,000</p><p class="old-price">$6,000</p>
+                </div>
+                <span class="like">
+                    <Icon  class="heart-icon" icon="tabler:heart" /> 
+                </span>
+            </span>
         </div>
     </div>
+ 
 </template>
 
 <script setup>
 
-
 const props = defineProps(['item'])
-
-
-
 
 </script>
 
@@ -53,22 +59,28 @@ const props = defineProps(['item'])
     display: flex;
     flex-direction: column;
     border-radius: 6px;
-    max-width: 300px;
-    height: 350px;
+    width: 450px;
+    height: 370px;
     background: var(--bg-whtie);
     overflow: hidden;
-
 }
 .card-container > .card-image-cotainer {
-    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
     position: relative;
     height: 220px;
+    width: 100%;
     background: var(--bg-whtie);
 }
-.card-container > .card-image-cotainer > img {
-    width: 100%; 
+
+.card-container > .card-image-cotainer > .object-fit_contain {
+    width: 100%;
     height: 220px;
-}
+    border: 0;
+    object-fit: cover;
+
+} 
 
 .card-container > .card-image-cotainer > .more {
     color: white;
@@ -78,11 +90,34 @@ const props = defineProps(['item'])
     align-items: center;
     top: 5px;
     right: 5px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 100%;
     position: absolute;
     background-color: #3333;
+}
+
+.card-container > .card-image-cotainer > .discount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    font-size: 12px;
+    position: absolute;
+    color: white;
+    background: var(--bg-orange);
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-bottom-right-radius: 65%;
+
+}
+
+.card-container > .card-image-cotainer > .discount > span:nth-child(2) {
+    font-weight: 200;
+    font-size: 8px;
 }
 
 .card-container > .card-image-cotainer > .view-icon-centainer {
@@ -115,16 +150,74 @@ const props = defineProps(['item'])
     font-size: 20px;
 }
 
-
 .card-container > .card-image-cotainer > .view-icon-centainer > .view {
     color: white;
-    background:rgba(0, 0, 0, 0.103)
+    background:rgba(0, 0, 0, 0.24)
 
 }
 
 .card-container > .description {
+    border-top: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px 8px;
     flex: 1;
+    /* background: lightblue; */
 }
+
+
+.card-container > .description > .card-title {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-container > .description > .sub-title {
+    gap: 4px;
+    display: flex;
+    justify-items: start;
+    align-items: center;    
+}
+.subtitle-elip {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dot {
+  height: 3px;
+  width: 3px;
+  background-color: gray;
+  border-radius: 50%;
+}
+
+.price-like-continer  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.heart-icon {
+    font-size: 24px;
+    color: gray;
+}
+.price-continer {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+.old-price {
+    font-style: italic;
+    color: gray;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: line-through;
+
+}
+
 
 </style>
 

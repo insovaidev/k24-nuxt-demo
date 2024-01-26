@@ -1,33 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@100;200;300;400;500;600;700;800;900&display=swap');
 :root {
     --bg-whtie: white;
     --bg-gray: gray;
     --pr-color: #00AAFF;
+    --bg-blue: #007bff;
     --text-gray: #6f6f6f;
+    --bg-orange: #f58800;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Noto Sans Khmer', sans-serif;
  }
 
+ /* font-family: 'Noto Sans Khmer', sans-serif; */
 
- body {
+
+body {
+    padding: 10px 0;
     background-color: whitesmoke;
  }
  
 /* text style */
 .main-title {
-    font-size: 24px;
+    font-size: 22px;
     color: black;
 }
 
 .sub-title {
     color: gray;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 300;
+
 }
 
 .price {
@@ -40,22 +47,37 @@
 /* category */
 .main-category {
     background-color: white;
-    gap: 1rem;
+    /* gap: 1.5rem;
+    r */
+    /* grid-column: 3rem; */
+    
+    row-gap: 3rem;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    padding: 1.5rem 1rem;
+}
+
+.card-link {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
 }
 
 
 /* post */
 .main-post {
+    text-decoration: none;
     background-color: whitesmoke;
-    gap: 1rem;
+    gap: 30px 10px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
+.main-post > .card-link {
+    text-decoration: none;
+}
 
 .category-container {
     display: flex;

@@ -14,21 +14,19 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   i18n: {
-    /* module options */
-    legacy: true,
-    langDir: 'locales',
-    strategy: 'prefix_except_default',
-    defaultLocale: 'en',
+    // locales: ['en', 'km'],  // used in URL path prefix
+    defaultLocale: 'en',    // default locale of your project for Nuxt pages and routings
     locales: [
       {
         code: 'en',
-        file: 'en.json'
+        file: 'C:/k24/nuxt-demo/locales/en.json'
       },
       {
-        code: 'kh',
-        file: 'kh.json'
-      }
-    ]
+        code: 'km',
+        file: 'C:/k24/nuxt-demo/locales/km.json'
+      },
+    ],
+    strategy: 'prefix_except_default',
   },
   components: [
     { path: '~/components', extensions: ['vue'] },
@@ -36,3 +34,4 @@ export default defineNuxtConfig({
     { path: '~/components/header', extensions: ['vue'] },
   ],
 })
+

@@ -2,360 +2,382 @@
     <div class="home">
 
         <div class="main-category">
-            <!-- <Category :item="item" v-for="item in category" :key="item.id"/> -->
+            <NuxtLink :to="'/c-'+item.slug" class="card-link" v-for="item in listMainCategory" :key="item.id">
+                <Category :item="item" />
+            </NuxtLink>
         </div>
-        <div class="main-post">
-            <Card :item="item" v-for="item in post" :key="item.id" />
-        </div>
+
+
+        <!-- <div class="main-post" >
+            <NuxtLink to="/" class="card-link">
+                <CardSale  />
+            </NuxtLink>
+            <NuxtLink to="/" class="card-link" v-for="item in post" :key="item.id">
+                <Card :item="item" />
+            </NuxtLink>
+        </div> -->
     </div>
 </template>
 
-
 <script setup>
+import axios from 'axios'
 
-const category = ref(null)
 const post = ref(null)
 
+const mainCategory  = await axios.get('https://api.khmer24.com/v1.0/categories?parent=0&lang=en&v=1')
+const listMainCategory = mainCategory.data.data
 
-onMounted(() => {
-    category.value = [
-        {
-            "id": "49",
-            "en_name": "Cars and Vehicles",
-            "km_name": "រថយន្ត និង យានយន្ត",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/23-01-17/cars-and-vehicles-1673926803.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/23-01-17/s-cars-and-vehicles-1673926803.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/23-01-17/m-cars-and-vehicles-1673926803.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/23-01-17/l-cars-and-vehicles-1673926803.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "cars-and-vehicles",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "162",
-            "en_name": "Phones & Tablets",
-            "km_name": "ទូរស័ព្ទ និង Tablets",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/mobile-phones-tablets-1638848154.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-mobile-phones-tablets-1638848154.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-mobile-phones-tablets-1638848154.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-mobile-phones-tablets-1638848154.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "mobile-phones-tablets",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "163",
-            "en_name": "Computers & Accessories",
-            "km_name": "កុំព្យូទ័រ និង គ្រឿងបន្លាស់",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/computer-and-accessories-1638848160.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-computer-and-accessories-1638848160.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-computer-and-accessories-1638848160.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-computer-and-accessories-1638848160.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "computer-and-accessories",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "164",
-            "en_name": "Electronics & Appliances",
-            "km_name": "អេឡិចត្រូនិច និង គ្រឿង​ប្រើប្រាស់",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/electronics-appliances-1638848165.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-electronics-appliances-1638848165.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-electronics-appliances-1638848165.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-electronics-appliances-1638848165.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "electronics-appliances",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "48",
-            "en_name": "House & Lands",
-            "km_name": "ផ្ទះ និង ដី",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/23-09-21/property-housing-rentals-1695265714.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/23-09-21/s-property-housing-rentals-1695265714.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/23-09-21/m-property-housing-rentals-1695265714.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/23-09-21/l-property-housing-rentals-1695265714.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "property-housing-rentals",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "2",
-            "en_name": "Jobs",
-            "km_name": "ការងារ",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/jobs-1638848186.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-jobs-1638848186.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-jobs-1638848186.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-jobs-1638848186.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "jobs",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "103",
-            "en_name": "Services",
-            "km_name": "សេវាកម្ម",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/services-1638848194.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-services-1638848194.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-services-1638848194.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-services-1638848194.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "services",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "167",
-            "en_name": "Fashion & Beauty",
-            "km_name": "សម្លៀកបំពាក់",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/fashion-beauty-1638848200.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-fashion-beauty-1638848200.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-fashion-beauty-1638848200.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-fashion-beauty-1638848200.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "fashion-beauty",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "165",
-            "en_name": "Furniture & Decor",
-            "km_name": "គ្រឿងសង្ហារឹម និង ដេ​គ័​រ",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/furniture-decor-1638848206.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-furniture-decor-1638848206.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-furniture-decor-1638848206.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-furniture-decor-1638848206.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "furniture-decor",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "166",
-            "en_name": "Books, Sports & Hobbies",
-            "km_name": "សៀវភៅ, កីឡា និង ចំណូលចិត្ត",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/books-sports-hobbies-1638848213.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-books-sports-hobbies-1638848212.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-books-sports-hobbies-1638848213.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-books-sports-hobbies-1638848213.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "books-sports-hobbies",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "173",
-            "en_name": "Pets",
-            "km_name": "សត្វចិញ្ចឹម",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/pets-1638848219.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-pets-1638848219.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-pets-1638848219.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-pets-1638848219.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "pets",
-            "parent": "0",
-            "popular": false
-        },
-        {
-            "id": "174",
-            "en_name": "Foods",
-            "km_name": "អាហារ",
-            "icon": {
-                "url": "https://images.khmer24.co/categories/21-12-07/foods-1638848268.png",
-                "width": "512",
-                "height": "512",
-                "small": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/s-foods-1638848268.png",
-                    "width": "128",
-                    "height": "128"
-                },
-                "medium": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/m-foods-1638848268.png",
-                    "width": "256",
-                    "height": "256"
-                },
-                "large": {
-                    "url": "https://images.khmer24.co/categories/21-12-07/l-foods-1638848268.png",
-                    "width": "512",
-                    "height": "512"
-                }
-            },
-            "slug": "foods",
-            "parent": "0",
-            "popular": false
-        }
-    ]
+
+
+onMounted( async () => {
+
+    
+    
+    
+    
+    // mainCategory.value = mainCategoryGet.data
+    // console.log(mainCategoryGet.data)
+    
+    // category.value = [
+    //     {
+    //         "id": "49",
+    //         "en_name": "Cars and Vehicles",
+    //         "km_name": "រថយន្ត និង យានយន្ត",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/23-01-17/cars-and-vehicles-1673926803.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/23-01-17/s-cars-and-vehicles-1673926803.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/23-01-17/m-cars-and-vehicles-1673926803.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/23-01-17/l-cars-and-vehicles-1673926803.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "cars-and-vehicles",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "162",
+    //         "en_name": "Phones & Tablets",
+    //         "km_name": "ទូរស័ព្ទ និង Tablets",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/mobile-phones-tablets-1638848154.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-mobile-phones-tablets-1638848154.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-mobile-phones-tablets-1638848154.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-mobile-phones-tablets-1638848154.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "mobile-phones-tablets",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "163",
+    //         "en_name": "Computers & Accessories",
+    //         "km_name": "កុំព្យូទ័រ និង គ្រឿងបន្លាស់",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/computer-and-accessories-1638848160.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-computer-and-accessories-1638848160.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-computer-and-accessories-1638848160.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-computer-and-accessories-1638848160.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "computer-and-accessories",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "164",
+    //         "en_name": "Electronics & Appliances",
+    //         "km_name": "អេឡិចត្រូនិច និង គ្រឿង​ប្រើប្រាស់",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/electronics-appliances-1638848165.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-electronics-appliances-1638848165.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-electronics-appliances-1638848165.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-electronics-appliances-1638848165.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "electronics-appliances",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "48",
+    //         "en_name": "House & Lands",
+    //         "km_name": "ផ្ទះ និង ដី",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/23-09-21/property-housing-rentals-1695265714.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/23-09-21/s-property-housing-rentals-1695265714.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/23-09-21/m-property-housing-rentals-1695265714.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/23-09-21/l-property-housing-rentals-1695265714.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "property-housing-rentals",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "2",
+    //         "en_name": "Jobs",
+    //         "km_name": "ការងារ",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/jobs-1638848186.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-jobs-1638848186.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-jobs-1638848186.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-jobs-1638848186.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "jobs",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "103",
+    //         "en_name": "Services",
+    //         "km_name": "សេវាកម្ម",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/services-1638848194.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-services-1638848194.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-services-1638848194.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-services-1638848194.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "services",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "167",
+    //         "en_name": "Fashion & Beauty",
+    //         "km_name": "សម្លៀកបំពាក់",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/fashion-beauty-1638848200.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-fashion-beauty-1638848200.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-fashion-beauty-1638848200.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-fashion-beauty-1638848200.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "fashion-beauty",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "165",
+    //         "en_name": "Furniture & Decor",
+    //         "km_name": "គ្រឿងសង្ហារឹម និង ដេ​គ័​រ",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/furniture-decor-1638848206.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-furniture-decor-1638848206.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-furniture-decor-1638848206.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-furniture-decor-1638848206.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "furniture-decor",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "166",
+    //         "en_name": "Books, Sports & Hobbies",
+    //         "km_name": "សៀវភៅ, កីឡា និង ចំណូលចិត្ត",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/books-sports-hobbies-1638848213.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-books-sports-hobbies-1638848212.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-books-sports-hobbies-1638848213.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-books-sports-hobbies-1638848213.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "books-sports-hobbies",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "173",
+    //         "en_name": "Pets",
+    //         "km_name": "សត្វចិញ្ចឹម",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/pets-1638848219.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-pets-1638848219.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-pets-1638848219.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-pets-1638848219.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "pets",
+    //         "parent": "0",
+    //         "popular": false
+    //     },
+    //     {
+    //         "id": "174",
+    //         "en_name": "Foods",
+    //         "km_name": "អាហារ",
+    //         "icon": {
+    //             "url": "https://images.khmer24.co/categories/21-12-07/foods-1638848268.png",
+    //             "width": "512",
+    //             "height": "512",
+    //             "small": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/s-foods-1638848268.png",
+    //                 "width": "128",
+    //                 "height": "128"
+    //             },
+    //             "medium": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/m-foods-1638848268.png",
+    //                 "width": "256",
+    //                 "height": "256"
+    //             },
+    //             "large": {
+    //                 "url": "https://images.khmer24.co/categories/21-12-07/l-foods-1638848268.png",
+    //                 "width": "512",
+    //                 "height": "512"
+    //             }
+    //         },
+    //         "slug": "foods",
+    //         "parent": "0",
+    //         "popular": false
+    //     }
+    // ]
+  
+  
     post.value = [
         {
             "type": "post",
@@ -454,6 +476,8 @@ onMounted(() => {
                 "enable_shipping": false
             }
         },
+
+
         {
             "type": "post",
             "data": {
@@ -3816,14 +3840,13 @@ onMounted(() => {
     ]
 })
 
-
-
 </script>
-
 <style scoped>
-.home {
-    padding: 10px;
-}
+/* .home {
+    padding: 5px;
+    width: 100%;
+} */
+
 
 </style>
 

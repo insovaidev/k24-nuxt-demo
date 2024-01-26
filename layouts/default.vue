@@ -1,6 +1,6 @@
 <template>
     <div>
-      <!-- <AppHeader /> -->
-      <slot />
+      <AppHeader />
+      <!-- <slot /> -->
     </div>
   </template>
