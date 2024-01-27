@@ -1,12 +1,21 @@
 <template>
         <div class="card-container">
             <div class="sale-card-description">
-                <p class="question-impresion">Want to see your ads here?</p>
-                <p class="promote-title">Make some extra cash by selling this in khmer24. Go on. it's quick and easy.</p>
+                <p class="question-impresion">{{ $t('new_text_3.ads_new_title') }}</p>
+                <p class="promote-title">{{ $t('new_text_3.ads_new_sub_title') }}</p>
             </div>
-            <button>Start Selling</button>
+            <button>{{ $t('new_text_3.start_selling') }}</button>
         </div>
 </template>
+
+
+<!-- {{ locale === 'en' ? props.item.en_name :  props.item.km_name}} -->
+
+<script setup>
+    const { locale } = useI18n()
+
+</script>
+
 <style scoped>
 .card-container {
     background: rgb(2,0,36);

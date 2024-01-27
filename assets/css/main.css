@@ -16,17 +16,14 @@
     font-family: 'Roboto', 'Noto Sans Khmer', sans-serif;
  }
 
- /* font-family: 'Noto Sans Khmer', sans-serif; */
-
-
 body {
-    padding: 10px 0;
     background-color: whitesmoke;
+    width: 100%;
  }
  
 /* text style */
 .main-title {
-    font-size: 22px;
+    font-size: 16px;    
     color: black;
 }
 
@@ -47,15 +44,21 @@ body {
 /* category */
 .main-category {
     background-color: white;
+    
     /* gap: 1.5rem;
     r */
     /* grid-column: 3rem; */
     
-    row-gap: 3rem;
+    /* row-gap: 3rem;
+    align-items: center;
+    grid-template-columns: repeat(7, 1fr);  */
+    
+    
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    padding: 1.5rem 1rem;
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, 8%);
+    grid-auto-rows: 200px;   
+    padding: 1.5rem 1rem;   
 }
 
 .card-link {

@@ -6,12 +6,14 @@
             </div>
         </div>
         <p class="main-title">
-            {{ props.item.en_name }}
+            {{ locale === 'en' ? props.item.en_name :  props.item.km_name}}
         </p>
     </div>
 </template>
 
 <script lang="js" setup>
+
+const { locale } = useI18n()
 
 const props = defineProps(['item'])
 

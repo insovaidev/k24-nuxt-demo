@@ -1,24 +1,15 @@
 <template>
    <div class="container">
-        <button @click="swichLang()" >
-            <div  :class="[lang == 'en' ? 'en-flage' : 'kh-flage']"></div>
-        </button>
-        <div class="title"><a href="/en">{{ $t('message.khmer24') }}</a></div> 
 
-        <!-- <NuxtLink :to="switchLocalePath('en')">English</NuxtLink> -->
+        <NuxtLink @click="en = !en" class="btn btn-link" :to="switchLocalePath(locale === 'en' ? 'km' : 'en')">
+            <img :src="'/'+locale+'.webp'" alt="" />
+        </NuxtLink>
 
+        <div class="title"><a href="/">{{ $t('message.khmer24') }}</a></div> 
         <button class="search">
             <Icon  class="search-icon" icon="iconamoon:search" />
         </button>
     </div>
-
-    <!-- <div> -->
-      <!-- {{ $t('message.khmer24') }}
-      <NuxtLink class="btn btn-link" :to="switchLocalePath(locale === 'en' ? 'km' : 'en')">
-        Language
-      </NuxtLink> -->
-  
-    <!-- </div> -->
 </template>
 
 
@@ -26,77 +17,31 @@
 
 import '~/assets/css/header.css'
 
-
-// const { locale } = useI18n()
-// //   const switchLocalePath = useSwitchLocalePath()
-//   onMounted(()=>{
-//     if(process.client){
-//       console.log(locale.value)
-//     }
-//   })
-  
-
-
-
 const { locale } = useI18n()
 
 const switchLocalePath = useSwitchLocalePath()
 
 
-
-const lang = ref('en')
-// locale.value = 'en'  
-
-function swichLang() {
-    const getLang = localStorage.getItem('lang');
-    lang.value = getLang
-    if(locale.value=='en') {
-        switchLocalePath('km')
-        localStorage.setItem('lang', 'km')
+onMounted(()=>{
+    if(process.client){
+        // console.log(locale.value)
     }
-    if(locale.value=='km') {
-        switchLocalePath('en')
-        localStorage.setItem('lang', 'en')
-    }
-
-    // console.log(locale.value)
-        
-}
-
-onMounted(() => {
-    const getLang = localStorage.getItem('lang');
-    lang.value = getLang
-    locale.value = getLang
 })
-
 
 </script>
 
 <style scoped>
+
+img {
+    width: 100%;
+    height: 100%;
+}
 
 button {
     object-fit: cover;
     width: 50px; 
     height: 30px;
 }
-
-.kh-flage {
-    width: 100%;
-    height: 100%;
-    background-image: url("C:/k24/nuxt-demo/assets/img/icons/kh-flag.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.en-flage {
-    width: 100%;
-    height: 100%;
-    background-image: url("C:/k24/nuxt-demo/assets/img/icons/uk-flag.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
 .container {
     padding: 0 15px;
     height: 50px;
@@ -105,7 +50,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: var(--pr-color); */
+    background-color: var(--pr-color);
 }
 
 .title a {
@@ -115,6 +60,8 @@ button {
 }
 
 .search {
+    cursor: pointer;
+    color: white;
     outline: none;
     border: none;
     background-color: transparent;
