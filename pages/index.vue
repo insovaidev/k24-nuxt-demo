@@ -35,7 +35,5 @@ const post = getPost.data.data
 </script>
 <style scoped>
 
-
-
 </style>
 
