@@ -1,6 +1,10 @@
 <template>
     <div>
-      <AppHeader />
+      <!-- <AppHeaderFilter /> -->
       <slot />
     </div>
-  </template>
+</template>
+<script setup> 
+
+  
+</script>

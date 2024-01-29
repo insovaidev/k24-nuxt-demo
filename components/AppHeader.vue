@@ -15,8 +15,6 @@
 
 <script setup lang="js">
 
-import '~/assets/css/header.css'
-
 const { locale } = useI18n()
 
 const switchLocalePath = useSwitchLocalePath()
