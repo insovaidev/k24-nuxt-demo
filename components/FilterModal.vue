@@ -186,7 +186,6 @@
 
 
 <script setup>
-import { ref, watch } from 'vue'
 
 const discount = ref(false)
 const freeDelivery = ref(false)
@@ -334,9 +333,17 @@ const freeDelivery = ref(false)
 }
 
 .filte-modal {
+    background: whitesmoke;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 10000;
 }
 
 .filter-modal-bar {

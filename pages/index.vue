@@ -1,10 +1,14 @@
 <template>
-    <div class="home">
-        <Footer />
+    <div class="home">    
+        <AppHeader />  
+        <FilterLocation />
         <!-- <FilterModal /> -->
-
+        
+        
         <!-- <AppHeaderSearch />
-        <SearchResult /> -->
+        
+        -->
+            <!-- <SearchResult />  -->
 
         <!-- <div class="main-category">
             <NuxtLink :to="localePath('/c-'+item.slug)" class="card-link" v-for="item in mainCategory" :key="item.id">
@@ -21,6 +25,8 @@
             </NuxtLink>
             <VueEternalLoading :load="load"></VueEternalLoading>
         </div> -->
+
+        
     </div>
 </template>
 
@@ -54,6 +60,19 @@ function load({ loaded }){
         loaded(allPost.value.length, pageSize.value);
     })
 }
+
+const locations = await $fetch(`https://api.khmer24.com/v1.0/locations?type=province&lang=${locale}`)
+
+const saveToLocalStorage  = () => {
+    localStorage.setItem('locations', JSON.stringify(locations))
+}
+
+onMounted(()=>{
+    if(process.client){
+        saveToLocalStorage()
+        // console.log(locale.value)
+    }
+})
 
 </script>
 <style scoped>

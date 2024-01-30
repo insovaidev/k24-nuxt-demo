@@ -15,15 +15,64 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', 'Noto Sans Khmer', sans-serif;
- }
+}
+
+/*  Text Color */
+.t-black {
+    color: black;
+}
+.t-active {
+    color: #006da1 !important;
+}
+.t-white {
+    color: white;
+}
+
+.t-light-gray {
+    color: lightgray;
+}
+
+.t-gray {
+    color: gray;
+}
+
+.t-primary {
+    color: #007bff !important;
+}
+
+/* Backround Color */
+.b-black {
+    background-color: #000;
+}
+.b-gray {
+    background-color: gray;
+}
+
+.b-ligth-gray {
+    background-color: lightgray;
+}
+
+.b-white-smoke {
+    background-color: whitesmoke;
+}
+.b-white {
+    background-color: white;
+}
+.b-primary {
+    background-color: #007bff;
+}
+
 
 body {
     background-color: whitesmoke;
     width: 100%;
- }
- button {
+}
+
+button {
     cursor: pointer;
- }
+}
+
+
 /* text style */
 .main-title {
     font-size: 16px;    
@@ -97,11 +146,62 @@ body {
     display: block;
 }
 .catecgory-title {
-
     color: var(--text-gray) !important;
 }
 
+.filter-button {
+    border-radius: 4px;
+    font-size: 14px;
+    width: max-content;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 3px 6px;
+    height: 40px;
+}
 
+/* .filter-bottom-modal {
+    display: none;
+} */
 
+.filter-bottom-modal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* background: white; */
+    height: 60% ;
+
+}
+
+.filter-bottom-modal > .filter-bottom-modal-bar {
+    border-top-left-radius:  20px;
+    border-top-right-radius: 20px;
+    padding: 0 16px;
+    background: lightgray;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black !important;
+    border-bottom: 1px solid lightgray;
+}
+
+.filter-bottom-modal > .filter-bottom-modal-bar > button {
+    background-color: transparent;
+    border: none;
+}
+.filter-bottom-modal > .filter-bottom-modal-bar >
+.clear-button {
+    display: flex;
+    align-items: center;
+    color: black;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
 
 

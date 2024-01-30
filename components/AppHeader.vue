@@ -5,7 +5,7 @@
             <img :src="'/'+locale+'.webp'" alt="" />
         </NuxtLink>
 
-        <div class="title"><a href="/">{{ $t('message.khmer24') }}</a></div> 
+        <div class="title"><a href="/" class="t-white">{{ $t('message.khmer24') }}</a></div> 
         <button class="search">
             <Icon  class="search-icon" icon="iconamoon:search" />
         </button>
@@ -54,7 +54,6 @@ button {
 .title a {
     text-decoration: none;
     font-size: 32px;
-    color: rgb(0, 0, 0);
 }
 
 .search {
