@@ -4,6 +4,7 @@
             <Icon icon="carbon:location" />
             <p> {{ $t('new_text_1.all_location') }}</p>
         </button>
+
         <div class="filter-bottom-modal" :class="[ filterLocation ? 'active' : '']">
             <div class="filter-bottom-modal-bar">
                  <!-- Close Modal -->
@@ -30,14 +31,8 @@
                     <!-- To Sub List -->
                     <li v-for="(item, index) in province.data" :key="index"  @click="toSublist(item)" class="list-item">
                         <p>{{ locale === 'en' ? item.en_name : item.km_name}}</p>
-
-                    
                         <Icon v-show="item.id != selectedItem.provinceId" icon="ri:arrow-drop-right-line" /> 
                         <Icon v-show="item.id == selectedItem.provinceId" class="t-primary" icon="mdi:checkbox-marked-circle" />  
-                    
-                    
-                    
-                    
                     </li>
                 </div>
 
@@ -156,7 +151,6 @@ onMounted(()=>{
 </script>
 
 <style scoped>
-
 
 
 .filter-button-container > button {

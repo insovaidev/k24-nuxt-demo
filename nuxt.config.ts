@@ -1,18 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  // vite: {
-  //   css: {
-  //     preprocessorOptions: {
-  //       scss: {
-  //         additionalData: '@use "~/assets/scss/_colors.scss" as *;'
-  //       }
-  //     }
-  //   }
-  // },
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      script: [
+        {
+          src: '/bootstrap5.3.2/js/bootstrap.bundle.min.js',
+        }
+      ],
+      link: [
+        {
+          rel: 'stylesheet', href: '/bootstrap5.3.2/css/bootstrap.min.css'
+        }
+      ]
+    }
+  },
   modules: [
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n', "nuxt-bootstrap-icons"
   ],
+
   i18n: {
     // locales: ['en', 'km'],  // used in URL path prefix
     defaultLocale: 'en',    // default locale of your project for Nuxt pages and routings
@@ -34,4 +42,3 @@ export default defineNuxtConfig({
     { path: '~/components/header', extensions: ['vue'] },
   ],
 })
-

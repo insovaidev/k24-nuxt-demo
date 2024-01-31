@@ -13,4 +13,10 @@ Detail:
     - Show relate ads
 
 
+
+
+const filters = {
+    "location": {},
+    "sort": {"id": 1}
+}
     

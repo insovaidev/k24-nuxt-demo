@@ -1,7 +1,12 @@
 <template>
     <div class="home">    
-        <AppHeader />  
-        <FilterLocation />
+        <!-- <AppHeader />   -->
+
+
+            <TestModal />
+            <!-- <FilterLocation /> -->
+            <!-- <FilterSort /> -->
+  
         <!-- <FilterModal /> -->
         
         
