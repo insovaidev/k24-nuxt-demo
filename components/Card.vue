@@ -1,4 +1,5 @@
 <template>
+    
     <div class="card-container">
         <div class="card-image-cotainer">
             <img class="object-fit_contain" :src="props.item.data.thumbnail" alt="" />
@@ -194,12 +195,6 @@ const props = defineProps(['item'])
     text-overflow: ellipsis;
 }
 
-.dot {
-    height: 3px;
-    width: 3px;
-    background-color: gray;
-    border-radius: 50%;
-}
 
 .sub-title2::before {
     content: "\2022"; 

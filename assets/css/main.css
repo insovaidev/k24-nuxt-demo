@@ -10,6 +10,20 @@
     --active: #006da1;
 }
 
+
+.dot {
+    height: 3px !important;
+    width: 3px !important ;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+
+p {
+
+    margin: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,6 +34,9 @@
 /*  Text Color */
 .t-black {
     color: black;
+}
+.t-red {
+    color: red;
 }
 .t-active {
     color: #006da1 !important;
@@ -78,6 +95,10 @@ button {
     display: flex;
 }
 
+
+.nuxt-link {
+    text-decoration: none !important;
+}
 /* text style */
 .main-title {
     font-size: 16px;    
@@ -155,12 +176,9 @@ button {
 }
 
 
-/* Filter Button & Modal */
-
-.filter-button-container > button {
-    border: none;
-}
+/* -------------- Filter Button & Modal Start ------------- */
 .filter-button {
+    border: none;
     border-radius: 4px;
     font-size: 14px;
     width: max-content;
@@ -173,98 +191,152 @@ button {
     height: 40px;
 }
 
-.modal.active {
-    height: 100vh;
-    width: 100%;
-    z-index: 100000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.233);
+.filter-button > p {
+    margin: 0;
 }
 
-
-.filter-bottom-modal {
-    display: block;
-}
-
-.filter-bottom-modal-bar > button {
-    display: none;
-}
-
-.filter-bottom-modal-bar > button.active {
-    display: block;
-}
-
-
-.filter-bottom-modal {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    /* background: white; */
-    height: 60% ;
-
-}
-
-.filter-bottom-modal > .filter-bottom-modal-bar {
-    border-top-left-radius:  20px;
-    border-top-right-radius: 20px;
-    padding: 0 16px;
-    background: lightgray;
-    height: 40px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: black !important;
-    border-bottom: 1px solid lightgray;
-}
-
-.filter-bottom-modal > .filter-bottom-modal-bar > button {
-    background-color: transparent;
-    border: none;
-}
-.filter-bottom-modal > .filter-bottom-modal-bar >
-.clear-button {
-    display: flex;
-    align-items: center;
-    color: black;
-    height: 100%;
-    background: transparent;
-    border: none;
-}
-
-.list-localtion {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-}
-
-.list-localtion > .list {
-    height: 100%;
-    display: none;
-
-}
-
-.list-localtion > .list.active {
-    height: 100%;
-    display: block;
-}
 .list-item {
+    /* height: 100%; */
     height: 50px;
     padding: 8px 12px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     border-bottom: 1px solid lightgray;
     cursor: pointer;
+}
+
+.list-item > p {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 0;
+}
+.list-item:hover {
+    background-color: lightgray;
 }
 
 .list-item > svg {
     font-size: 24px;
     color: gray;
 }
+
+.c-btn-close,
+.back-icon {
+  display: none;
+}
+
+.c-btn-close.active,
+.back-icon.active {
+  display: block;
+}
+
+.c-modal-body {
+  padding: 0;
+}
+
+.c-modal-body > .list {
+  height: 100%;
+  display: none;
+}
+
+.c-modal-body > .list.active {
+  height: 100%;
+  display: block;
+}
+
+.c-modal-dialog {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow-y: hidden;
+  min-width: 100% !important;
+  left: 0;
+  bottom: 0;
+  height: 60% !important;
+  position: absolute;
+}
+
+.c-modal-content {
+  height: 100%;
+  min-width: 100% !important;
+}
+
+.c-modal-header {
+  background: lightgray;
+  min-width: 100% !important;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-modal-header > p {
+  height: 100%;
+}
+
+.c-modal-header > button {
+  border: none;
+  background-color: transparent;
+}
+
+.apply-price-filter {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    margin: 16px auto;
+    background-color: var(--bg-orange);
+    border: none;
+    border-radius: 4px;
+    padding: 16px  8px ;
+}
+
+.input-box>input:focus,
+.select-box>select:focus,
+.min-number-input > input:focus, 
+.max-number-input > input:focus {
+    border: 1px solid lightgrey;
+    outline: none;
+    box-shadow: 0px 0px 2px 1px rgba(0, 170, 255, 0.61);
+    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 170, 255, 0.61);
+    -moz-box-shadow: 0px 0px 2px 1px rgba(0, 170, 255, 0.61);
+}
+
+.input-box>input,
+.select-box>select,
+.min-number-input>input,
+.max-number-input>input
+ {
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+}
+/* -------------- Filter Button & Modal End ------------- */
+
+
+
+/* -------------- Footer Start ------------- */
+
+.footer-container {
+    border-top: 1px solid lightgray;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;    
+}
+
+
+/* -------------- Footer End ------------- */
+
+
 

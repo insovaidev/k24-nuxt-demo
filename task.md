@@ -12,11 +12,3 @@ Detail:
     - Display ad detail
     - Show relate ads
 
-
-
-
-const filters = {
-    "location": {},
-    "sort": {"id": 1}
-}
-    

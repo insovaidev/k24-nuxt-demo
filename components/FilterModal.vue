@@ -196,7 +196,7 @@ const freeDelivery = ref(false)
 <style scoped>
 
 
-@supports(-webkit-appearance: none) or (-moz-appearance: none) {
+/* @supports(-webkit-appearance: none) or (-moz-appearance: none) {
   input[type='checkbox'],
   input[type='radio'] {
     --active: #275EFE;
@@ -330,7 +330,7 @@ const freeDelivery = ref(false)
       --s: .5;
     }
   }
-}
+} */
 
 .filte-modal {
     background: whitesmoke;
@@ -398,10 +398,11 @@ const freeDelivery = ref(false)
     align-items: start;
     margin-bottom: 16px;
 }
-.input-box>input,
+/* .input-box>input,
 .select-box>select,
 .min-number-input>input,
-.max-number-input>input {
+.max-number-input>input
+ {
     font-size: 16px;
     width: 100%;
     height: 100%;
@@ -410,20 +411,11 @@ const freeDelivery = ref(false)
     border-radius: 4px;
     background-color: white;
     color: black;
-}
+} */
 
 .input-box>input:focus,
 .input-box>select:focus,
 .select-box>select:focus,
-.min-number-input>input:focus,
-.max-number-input>input:focus {
-    border: 1px solid lightgrey;
-    outline: none;
-    box-shadow: 0px 0px 2px 1px rgba(0, 170, 255, 0.61);
-    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 170, 255, 0.61);
-    -moz-box-shadow: 0px 0px 2px 1px rgba(0, 170, 255, 0.61);
-}
-
 .number-box {
     width: 100%;
     display: flex;

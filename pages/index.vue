@@ -1,18 +1,27 @@
 <template>
     <div class="home">    
+
+         <!-- <FooterDefualt /> -->
+         <!-- <FooterChat /> -->
+
+        <!-- <DetailPost /> -->
+
+
         <!-- <AppHeader />   -->
 
 
-            <TestModal />
+            <!-- <TestModal /> -->
             <!-- <FilterLocation /> -->
             <!-- <FilterSort /> -->
-  
+
+            <!-- <FilterPrice /> -->
         <!-- <FilterModal /> -->
         
         
-        <!-- <AppHeaderSearch />
+        <!-- <AppHeaderSearch /> -->
         
-        -->
+        <!-- <AppHeaderFilter /> -->
+
             <!-- <SearchResult />  -->
 
         <!-- <div class="main-category">
@@ -20,6 +29,7 @@
                 <Category :item="item" />
             </NuxtLink>
         </div>
+        -->
 
         <div class="main-post" >
             <NuxtLink to="/" class="card-link">
@@ -29,7 +39,7 @@
                 <Card :item="item" />
             </NuxtLink>
             <VueEternalLoading :load="load"></VueEternalLoading>
-        </div> -->
+        </div> 
 
         
     </div>

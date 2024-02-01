@@ -6,14 +6,12 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       script: [
-        {
-          src: '/bootstrap5.3.2/js/bootstrap.bundle.min.js',
-        }
+        { src: '/bootstrap5.3.2/js/bootstrap.bundle.min.js' },
+        { src: '/fancybox-5.0.0/fancybox.umd.js' }
       ],
       link: [
-        {
-          rel: 'stylesheet', href: '/bootstrap5.3.2/css/bootstrap.min.css'
-        }
+        { rel: 'stylesheet', href: '/bootstrap5.3.2/css/bootstrap.min.css' },
+        { rel: 'stylesheet', href: '/fancybox-5.0.0/fancybox.css' }
       ]
     }
   },

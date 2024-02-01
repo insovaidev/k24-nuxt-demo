@@ -6,5 +6,11 @@
 
 <script>
 import '~/assets/css/main.css'
+// onMounted(()=>{
+//   Fancybox.bind("[data-fancybox]", {
+//   // Your custom options
+// });
+// })
+
 
 </script>

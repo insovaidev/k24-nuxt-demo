@@ -22,13 +22,7 @@
 </template>
 
 <style scoped>
-.footer-container {
-    background: white;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;    
-}
+
 
 .footer-container > .nav-item {
     cursor: pointer;
