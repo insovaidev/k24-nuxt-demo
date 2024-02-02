@@ -20,11 +20,7 @@ const { locale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
 
-onMounted(()=>{
-    if(process.client){
-        // console.log(locale.value)
-    }
-})
+
 
 </script>
 
@@ -43,7 +39,7 @@ button {
 .container {
     padding: 0 15px;
     height: 50px;
-    width: 100%;
+    min-width: 100%;
     line-height: 1.5;
     display: flex;
     justify-content: space-between;
@@ -69,4 +65,6 @@ button {
     font-size: 24px; 
     background-color: transparent;
 }
+
+
 </style>

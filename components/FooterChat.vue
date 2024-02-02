@@ -2,6 +2,7 @@
         <div class="footer-container">
             <a href="" class="like">
                 <Icon class="heart-icon" icon="tabler:heart" />
+                <!-- <p v-if="like > 0">{{ props.like }}</p>                 -->
             </a>
             <div class="chat-call-button">
                 <button class="bt1">
@@ -14,13 +15,31 @@
         </div>
 </template>
 
+
+<script setup>
+
+const props = defineProps(['like'])
+
+// console.log(like)
+
+</script>
 <style scoped>
 
 .footer-container > .like {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
     height: 100%;
-    font-size: 32px;
     padding: 0 32px;
-    color: gray;
+    color: gray !important;
+}
+
+.footer-container > .like svg {
+    font-size: 32px;
+}
+
+.footer-container > .like p {
+    font-size: 16px;
 }
 .chat-call-button {
     height: 100%;

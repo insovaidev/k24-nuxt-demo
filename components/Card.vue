@@ -13,24 +13,25 @@
             <div class="more">
                 <Icon class="" icon="mingcute:more-2-fill" />
             </div>
+            <div  class="view-icon-centainer">
 
-            <div class="view-icon-centainer">
-                <div class="delivery">
+                <div v-if="props.item.data && props.item.data.shipping" class="delivery">
                     <Icon class="icon" icon="uil:bus-school" />
-                    <span>Free Delivery</span>
+                    <span>{{  props.item.data.shipping.title }}</span>
                 </div>
 
-                <div class="view">
+                <div v-if="props.item.data.photos && props.item.data.photos.length > 0" class="view">
                     <Icon class="icon" icon="ph:image-bold" />
-                    <span class="count">10</span>
+                    <span class="count">{{ props.item.data.photos.length }}</span>
                 </div>
             </div>
         </div>
 
         <div class="description">
             <p class="main-title card-title">{{ props.item.data.title }}</p>
-            <span class="sub-title">
-                <span>16mn </span><span class="dot"></span><span class="subtitle-elip"> {{ locale === 'en' ? props.item.data.location.en_name2   :  props.item.data.location.km_name2}}</span>
+            <span v-if="props.item.data.location" class="sub-title">
+
+                <span>16mn </span><span class="dot"></span><span class="subtitle-elip"> {{ locale === 'en' ? props.item.data.location.km_name2  :  props.item.data.location.km_name2 }}</span>
             </span>
             <span v-if="props.item.data.condition" class="sub-title">
                 <span>{{ props.item.data.condition.title }}</span>
@@ -54,8 +55,8 @@
 <script setup>
 
 const { locale } = useI18n()
-const props = defineProps(['item'])
 
+const props = defineProps(['item'])
 </script>
 
 <style scoped>

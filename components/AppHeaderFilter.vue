@@ -15,7 +15,10 @@
 
 <script setup>
 
-const props = defineProps('filters')
+const props = defineProps(['filters'])
+
+
+console.log(props.filters)
 
 </script>
 

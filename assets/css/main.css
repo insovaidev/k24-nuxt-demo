@@ -109,7 +109,7 @@ button {
     color: gray;
     font-size: 15px;
     font-weight: 300;
-
+    
 }
 
 .price {
@@ -124,11 +124,13 @@ button {
     background-color: white;
     flex-wrap: wrap;    
     width: 100%;
-    display: flex; 
+    display: flex;
+    justify-content: space-evenly;
+    margin-inline: auto; 
     padding: 1.5rem 1rem;   
 }
 
-.card-link {
+/* .card-link {
     width: 15%;
     display: flex;
     justify-content: center;
@@ -137,24 +139,67 @@ button {
 }
 
 /* post */
-.main-post {
+/* .main-post {
     text-decoration: none;
     background-color: whitesmoke;
     gap: 30px 10px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-}
+} */ */
 
 .main-post > .card-link {
     text-decoration: none;
 }
+
+
+.card-link {
+    /* width: 15%; */
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+    /* background-color: #006da1; */
+    /* border: 1px solid lightblue; */
+    
+}
+
+/* post */
+.main-post {
+    padding: 0 1rem;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: whitesmoke;
+    gap: 10px;
+    /* width: 100%; */
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+
+@media  (min-width: 1920px){
+    .main-post {    
+        /* background: #000; */
+        /* grid-template-columns: repeat(5, 1fr); */
+    }
+}
+
+@media (max-width: 1920px){
+    .main-post {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
 
 .category-container {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
+
 .icon-catecgory {
     margin-bottom: 1rem;
     display: flex;
