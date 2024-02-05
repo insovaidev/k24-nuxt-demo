@@ -6,6 +6,8 @@
         </NuxtLink>
 
         <div class="title"><a href="/" class="t-white">{{ $t('message.khmer24') }}</a></div> 
+
+        
         <button class="search">
             <Icon  class="search-icon" icon="iconamoon:search" />
         </button>
@@ -26,45 +28,6 @@ const switchLocalePath = useSwitchLocalePath()
 
 <style scoped>
 
-img {
-    width: 100%;
-    height: 100%;
-}
-
-button {
-    object-fit: cover;
-    width: 50px; 
-    height: 30px;
-}
-.container {
-    padding: 0 15px;
-    height: 50px;
-    min-width: 100%;
-    line-height: 1.5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--pr-color);
-}
-
-.title a {
-    text-decoration: none;
-    font-size: 32px;
-}
-
-.search {
-    cursor: pointer;
-    color: white;
-    outline: none;
-    border: none;
-    background-color: transparent;
-}
-
-
-.search-icon {
-    font-size: 24px; 
-    background-color: transparent;
-}
 
 
 </style>

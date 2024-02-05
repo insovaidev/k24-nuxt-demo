@@ -18,7 +18,8 @@
 const props = defineProps(['filters'])
 
 
-console.log(props.filters)
+
+// console.log(props.filters)
 
 </script>
 
